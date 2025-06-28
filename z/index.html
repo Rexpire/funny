@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+   <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+    <script src="snowstorm.js"></script>
+    <title>Rex <3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="https://media.discordapp.net/attachments/667526400374341642/1166826544057024562/d08302f4ea5ab78e1505e4da64d8b8cb39273a6d.png?ex=66314be6&is=662ffa66&hm=6eeef441389cf9bac49fdae9bf727633c0a1d3f85d3c419b01f397d99d8336d4&=&format=webp&quality=lossless&width=540&height=675">
+    <style>
+        @font-face {
+            font-family: 'dpcomic';
+            src: url('dpcomic.ttf') format('truetype');
+        }
+
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: pink;
+            font-family: 'dpcomic', monospace;
+            text-shadow: 0 0 20px rgba(255, 0, 239, 0.8); 
+        }
+
+        #container {
+            text-align: center;
+            display: none; 
+        }
+
+        img {
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 2px solid pink; 
+            box-shadow: 0 0 20px rgba(255, 0, 239, 0.8); 
+            max-width: 150px; 
+            max-height: 150px;
+        }
+
+        #madara-text {
+            font-size: clamp(30px, 10vw, 40px); 
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 0, 239, 1); 
+        }
+
+        #footer {
+            font-size: clamp(16px, 10vw, 24px); 
+            margin-bottom: 25px;
+            text-shadow: 0 0 20px rgba(255, 0, 239, 1);
+        }
+
+        .telegram-icon,
+        .discord-icon,
+        .globe-icon {
+            font-size: 32px;
+            color: white; 
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        button {
+            background-color: transparent; 
+            border: none;
+            padding: 0; 
+            cursor: pointer;
+            margin: 8px; 
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0); 
+        }
+
+        button:hover {
+            transform: translateY(-3px); 
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-right: 2px solid rgba(255, 255, 255, 0.8) }
+        }
+
+        .typewriter {
+            overflow: hidden; 
+            border-right: 2px solid rgba(255, 0, 239, 0.8); 
+            white-space: nowrap; 
+            animation: typing 1s steps(40, end), blink-caret 0.75s step-end infinite; 
+        }
+
+        #click-me {
+            color: rgb(255, 166, 228);
+            font-size: clamp(40px, 10vw, 60px);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); 
+            cursor: pointer;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255, 0, 239, 0.8); }
+            to { text-shadow: 0 0 30px rgba(255, 0, 239, 1); }
+        }
+    </style>
+</head>
+</div>
+    <body>
+    <div id="container">
+        <img src="madara.jpg" alt="Profile Picture"> 
+        <div id="madara-text">Rexy <3</div> 
+        <div id="footer">
+            <span id="typing-text" class="typewriter"></span> 
+        </div>
+        <div class="dabox">
+            <a href="https://discord.gg/vexhub"><button><i class="fab fa-discord discord-icon"></i></button></a>
+            <a href="https://discord.gg/term"><button><i class="fab fa-discord discord-icon"></i></button></a>
+        </div>
+    </div>
+
+    <div id="click-me" onclick="showContent()">CLICK ME</div>
+
+    <audio id="backgroundMusic">
+        <source src="madara.mp3" type="audio/mpeg">
+    </audio>
+   
+<script>
+      function removeOverlay() {
+        var overlay = document.getElementById("overlay");
+        overlay.style.display = "none";
+      }
+
+      function updateClock() {
+        const now = new Date();
+        const options = {
+          hour12: true,
+          hour: 'numeric',
+          minute: '2-digit',
+          second: '2-digit'
+        };
+        const formattedTime = now.toLocaleTimeString('en-US', options);
+        document.getElementById('clock').textContent = formattedTime;
+      }
+
+      setInterval(updateClock, 1000);
+
+      function createBloodSparks() {
+        const numSparks = Math.floor(Math.random() * 5) + 1;
+        for (let i = 0; i < numSparks; i++) {
+          const bloodSpark = document.createElement('div');
+          bloodSpark.classList.add('blood-spark');
+          bloodSpark.style.left = `${Math.random() * window.innerWidth}px`;
+          document.body.appendChild(bloodSpark);
+
+          setTimeout(() => {
+            bloodSpark.remove();
+          }, 6000);
+        }
+      }
+
+      setInterval(createBloodSparks, 1000);
+    </script>
+    <script>
+      function playMusic() {
+        var audio = new Audio('slurslol.mp3');
+        audio.play();
+      }
+    </script>
+   
+<script>
+        function showContent() {
+            document.getElementById("container").style.display = "block";
+            document.getElementById("click-me").style.display = "none";
+
+            const audio = document.getElementById("backgroundMusic");
+            audio.play();
+        }
+
+        const textElement = document.getElementById("typing-text");
+        const texts = ["Egirl HMU!!", "Meow", "Im unknown dw"];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentText = texts[textIndex];
+            if (isDeleting) {
+                textElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                textElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                isDeleting = true;
+                setTimeout(type, 1500); 
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                setTimeout(type, 500);
+            } else {
+                setTimeout(type, 50); 
+            }
+        }
+
+document.addEventListener("DOMContentLoaded", type);
+</script>
+</body>
+</html>
